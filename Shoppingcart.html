@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Nora's Flora</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+ <script src="app.js" defer></script>
+
+
+    <style>
+        body {
+            background-color: #f5f5dc;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: #3f593d;
+            border-bottom: 2px solid #3f593d;
+        }
+
+        .Logo {
+            height: 70px;
+        }
+
+        .icon-cart {
+            position: relative;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px; /* zorgt dat delete button netjes ernaast staat */
+        }
+
+        .icon-cart span {
+            position: absolute;
+            top: -8px;
+            right: -10px;
+            background: #dc3545;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 50%;
+            font-size: 12px;
+        }
+
+        .product-row {
+            background: #cbe5c5;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-row img {
+            border-radius: 12px;
+            width: 100%;
+        }
+
+        .mijn-button {
+            border-radius: 12px;
+            padding: 12px 24px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .btn-success.mijn-button {
+            background-color: #28a745;
+        }
+
+        .btn-success.mijn-button:hover {
+            background-color: #218838;
+        }
+
+        .btn-warning.mijn-button {
+            background-color: #ffc107;
+        }
+
+        .btn-warning.mijn-button:hover {
+            background-color: #e0a800;
+        }
+
+        .total-box {
+            font-size: 20px;
+            font-weight: bold;
+            text-align: right;
+        }
+
+        .add-to-cart-btn {
+            background-color: #ffffff;
+            padding: 10px 16px;
+            cursor: pointer;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #989a9c;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <img src="img/norasFloraLogo.png" class="Logo">
+
+        <div class="icon-cart">
+
+            <button class="remove-from-cart-btn" style="
+                background:#dc3545;
+                color:white;
+                border:none;
+                padding:6px 12px;
+                border-radius:6px;
+                cursor:pointer;
+            ">
+                Verwijder
+            </button>
+
+            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="26" height="24" fill="currentColor"
+                viewBox="0 0 24 24">
+                <path fill-rule="evenodd"
+                    d="M4 4a1 1 0 0 1 1-1h1.5a1 1 0 0 1 .979.796L7.939 6H19a1 1 0 0 1 .979 1.204l-1.25 6a1 1 0 0 1-.979.796H9.605l.208 1H17a3 3 0 1 1-2.83 2h-2.34a3 3 0 1 1-4.009-1.76L5.686 5H5a1 1 0 0 1-1-1Z"
+                    clip-rule="evenodd" />
+            </svg>
+            <span>0</span>
+        </div>
+    </header>
+    
+    <div class="container mt-4">
+        <div class="row product-row">
+            <div class="col-2">
+                <img src="img/pexels-pixabay-54267.jpg" alt="Zonnebloemen" style="width:350px; height:auto;">
+            </div>
+            <div class="col-4">
+                <h4>Zonnebloem</h4>
+            </div>
+            <div class="col-2">
+                €5,-
+            </div>
+            <div class="col-2">
+                <label>Kies Aantal:</label>
+                <select class="form-select">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                </select>
+                </div><br>
+                  <div class="col-2">
+                   <button class="btn btn-primary add-to-cart-btn">
+                   Voeg toe aan winkelwagen
+                  </button>
+                  </div>
+            </div>
+        </div>
+
+        <div class="row product-row">
+            <div class="col-2">
+                <img src="img/pexels-valeriya-1961778.jpg" alt="Rode Tulpen" style="width:350px; height:auto;">
+            </div>
+            <div class="col-4">
+                <h4>Rode Tulpen</h4>
+            </div>
+            <div class="col-2">
+                €3,-
+            </div>
+            <div class="col-2">
+                <label>Kies Aantal:</label>
+                <select class="form-select">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                </select>
+                  </div><br>
+                  <div class="col-2">
+                   <button class="btn btn-primary add-to-cart-btn">
+                   Voeg toe aan winkelwagen
+                  </button>
+                  </div>
+            </div>
+        </div>
+
+        <div class="row product-row">
+            <div class="col-3">
+                <img src=img/pexels-mikebirdy-109828.jpg alt="Cactus" style="width:350px; height:auto;">
+            </div>
+            <div class="col-3">
+                <h4>Paarse Allium Bloemen</h4>
+            </div>
+            <div class="col-2">
+                Gratis als extra bij een bouqet
+            </div>
+            <div class="col-2">
+                <label>Kies Aantal:</label>
+                <select class="form-select">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                </select>
+                </div> <br>
+                  <div class="col-2">
+                   <button class="btn btn-primary add-to-cart-btn">
+                   Voeg toe aan winkelwagen
+                  </button>
+                  </div>
+
+                </div>
+               
+        <div class="row product-row">
+            <div class="col-2"><img src="img/pexels-scottwebb-403571.jpg" alt="Cactus"
+                    style="width:350px; height:auto;"></div>
+            <div class="col-4">
+                <h4>Cactus in pot</h4>
+            </div>
+            <div class="col-2">3 voor €5,-</div>
+            <div class="col-2"><label>Kies Aantal:</label><select class="form-select">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    </select>
+                </div> <br>
+                  <div class="col-2">
+                   <button class="btn btn-primary add-to-cart-btn">
+                   Voeg toe aan winkelwagen
+                  </button>
+                  </div>
+
+                <div class="row product-row">
+                <div class="col-3"><img src="img/pexels-maureen-piecesphotography-1207978.jpg" alt="Cactus"
+                        style="width:350px; height:auto;"></div>
+                <div class="col-4">
+                    <h4>Vetbloemen deze week</h4>
+                    <div class="col-2">3 + 1 gratis</div>
+
+                    <div class="col-2">
+                    <label>Kies Aantal:</label>
+                    <select class="form-select">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                   </select>
+             </div>
+
+                  <div class="col-2"><br>
+                   <button class="btn btn-primary add-to-cart-btn">
+                    Voeg toe aan winkelwagen
+                   </button>
+                   </div>
+                   <br>
+
+                <div class="row mt-4">
+                    <div class="col-8">
+                    <button onclick="location.href = 'index.html';" id="mijn-button" class="btn btn-success mijn-button" >Doorgaan met winkelen</button>
+
+                        
+                    </div>
+                    <div class="col-2 total-box">
+                        Total: €0.00
+                    </div>
+                    <div class="col-2">
+                        <button class="btn btn-success mijn-button">Afrekenen ></button>
+                    </div>
+                </div>
+
+            </div>
+            <script src="shoppingcart.js"></script>
